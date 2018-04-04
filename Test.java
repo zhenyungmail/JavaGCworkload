@@ -7,7 +7,7 @@ import java.util.zip.GZIPOutputStream;
 public class Test
 {
 	static int ThreadNum =1; 
-	static int Duration = 300; // seconds;  Program will exit after Duration of seconds.
+	static int Duration = 3600; // seconds;  Program will exit after Duration of seconds.
 	
 	static int ReferenceSize = 1024 * 10;  // each reference object size; 
         static int CountDownSize = 1000 * 100;
