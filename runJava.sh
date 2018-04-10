@@ -1,7 +1,11 @@
-JAVA_PATH=/export/apps/jdk/JDK-1_8_0_5/bin
+#JAVA_PATH=/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home/bin
+JAVA_PATH=/usr/local/bin
 $JAVA_PATH/javac Test.java
-
-#10g heap is suggested
-$JAVA_PATH/java -Xmx$1 -Xms$1 -Xloggc:gc.log -XX:+UseG1GC -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps Test
+HEAP=10g
 
 
+#Step 1: Minimum setup
+#$JAVA_PATH/java -Xmx$HEAP -Xms$HEAP -Xloggc:gc.log Test
+
+#Step 2: Full setup
+$JAVA_PATH/java -Xmx$HEAP -Xms$HEAP -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:+UseG1GC -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime -Xloggc:gc.log Test
